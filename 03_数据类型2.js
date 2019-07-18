@@ -37,18 +37,29 @@ console.log(`m1.length = ${m1.length}`);    // m1.length = 5
 /**
  * 2、把字符串分割成字符串数组 --- str.split(separator, length):
  *          separator: 按照str中的什么进行分割
- *          length: 返回的数组最大长度
+ *          length: 返回的数组最大长度。
  * */
 console.log('==========================2、分割线=========================');
+let str2 = 'a,b,c';
+let strArr2 = str2.split(',');
+console.log(`str2.split(',') = ${strArr2}, strArr2.length = ${strArr2.length}`);    // str2.split(',') = a,b,c, strArr2.length = 3
+strArr2 = str2.split(',', 1);
+console.log(`str2.split(',', 1) = ${strArr2}, strArr2.length = ${strArr2.length}`); // str2.split(',', 1) = a, strArr2.length = 1
+strArr2 = str2.split(',', 5);
+console.log(`str2.split(',', 5) = ${strArr2}, strArr2.length = ${strArr2.length}`); // str2.split(',', 5) = a,b,c, strArr2.length = 3
 
 
 
 /**
  * 3、把字符串中的某些字符替换为指定字符 --- str.replace(substr, replacement)
- *           substr: 替换为哪个字符
- *           replacement: 需要替换的字符
+ *           将 substr 替换为 replacement
+ *           不改变原字符串，返回新字符串
  * */
 console.log('==========================3、分割线=========================');
+let str3 = 'Hello, world';
+let str3Rep = str3.replace('Hello', 'Hi');
+console.log(`str3Rep = ${str3Rep},  str3 = ${str3}`);        // str3Rep = Hi, world,  str3 = Hello, world
+
 
 
 
@@ -57,6 +68,10 @@ console.log('==========================3、分割线=========================');
  *          若没有返回-1
  * */
 console.log('==========================4、分割线=========================');
+let str4 = 'Hello, world! Hello, world!';
+console.log(`str4.indexOf('llo') = ${str4.indexOf('llo')}`);          // str4.indexOf('llo') = 2
+console.log(`str4.indexOf('abc') = ${str4.indexOf('abc')}`);          // str4.indexOf('abc') = -1
+
 
 
 
@@ -65,6 +80,10 @@ console.log('==========================4、分割线=========================');
  *          若越界返回空字符串
  * */
 console.log('==========================5、分割线=========================');
+let str5 = 'Hello, world';
+console.log(`str5.charAt(-1) = ${str5.charAt(-1)}`);                // str5.charAt(-1) =
+console.log(`str5.charAt(4) = ${str5.charAt(4)}`);                  // str5.charAt(4) = o
+console.log(`str5.charAt(12) = ${str5.charAt(12)}`);                // str5.charAt(12) =
 
 
 
@@ -73,6 +92,10 @@ console.log('==========================5、分割线=========================');
  *          若越界返回NaN
  * */
 console.log('==========================6、分割线=========================');
+let str6 = 'Hello, world';
+console.log(`str6.charCodeAt(-1) = ${str6.charCodeAt(-1)}`);        // str6.charCodeAt(-1) = NaN
+console.log(`str6.charCodeAt(4) = ${str6.charCodeAt(4)}`);          // str6.charCodeAt(4) = 111
+console.log(`str6.charCodeAt(12) = ${str6.charCodeAt(12)}`);        // str6.charCodeAt(12) = NaN
 
 
 
@@ -81,6 +104,11 @@ console.log('==========================6、分割线=========================');
  *          不改变原str（字符串拼接推荐用+）
  * */
 console.log('==========================7、分割线=========================');
+let strPre7 = 'Hello,';
+let strSuf7 = 'world';
+let strMid7 = '123,';
+let concatStr7 = strPre7.concat(strMid7, strSuf7);
+console.log(`concatStr7 = ${concatStr7}, strPre7 = ${strPre7}`);  // concatStr7 = Hello,123,world, strPre7 = Hello,
 
 
 
@@ -89,13 +117,16 @@ console.log('==========================7、分割线=========================');
  *          第一次找到即返回下标，否则返回-1
  * */
 console.log('==========================8、分割线=========================');
-
+let str8 = 'Hello, hello, world';
+console.log(`str8.lastIndexOf('llo') = ${str8.lastIndexOf('llo')}`);        // str8.lastIndexOf('llo') = 9
+console.log(`str8.lastIndexOf('llo', 5) = ${str8.lastIndexOf('llo', 5)}`);  // str8.lastIndexOf('llo', 5) = 2
 
 
 /**
  * 9、检索str中匹配subStr/正则表达式的值 --- str.match(subStr/regexp)
  * */
 console.log('==========================9、分割线=========================');
+
 
 
 
