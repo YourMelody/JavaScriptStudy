@@ -120,12 +120,20 @@ console.log('==========================8、分割线=========================');
 let str8 = 'Hello, hello, world';
 console.log(`str8.lastIndexOf('llo') = ${str8.lastIndexOf('llo')}`);        // str8.lastIndexOf('llo') = 9
 console.log(`str8.lastIndexOf('llo', 5) = ${str8.lastIndexOf('llo', 5)}`);  // str8.lastIndexOf('llo', 5) = 2
+console.log(`str8.lastIndexOf('llo', 20) = ${str8.lastIndexOf('llo', 20)}`);// str8.lastIndexOf('llo', 20) = 9
+
+
 
 
 /**
  * 9、检索str中匹配subStr/正则表达式的值 --- str.match(subStr/regexp)
+ *              检索到，会返回subStr（或返回符合正则表达式的subStr）
+ *              检索不到返回null
  * */
 console.log('==========================9、分割线=========================');
+let str9 = 'hello, hello, hello, world';
+console.log(`str9.match('llo') = ${str9.match('llo')}`);    // str9.match('llo') = llo
+console.log(`str9.match('abc') = ${str9.match('abc')}`);    // str9.match('abc') = null
 
 
 
@@ -135,6 +143,10 @@ console.log('==========================9、分割线=========================');
  *          返回第一个匹配的子串的起始下标，没有匹配的返回-1
  * */
 console.log('==========================10、分割线=========================');
+let strA = 'hello, hello, world';
+console.log(`strA.search('llo') = ${strA.search('llo')}`);  // strA.search('llo') = 2
+console.log(`strA.search('abc') = ${strA.search('abc')}`);  // strA.search('abc') = -1
+
 
 
 
@@ -142,29 +154,55 @@ console.log('==========================10、分割线=========================')
  * 11、字符串截取 --- str.slice(from, until)
  *          from为起始位置下标（包含）
  *          until为结束位置下标（不包含）
+ *          注意：from和until都可以为负数，但要保证from <= until才有意义
+ *          在不越界的情况下，如果from > until，则返回空字符串
  * */
 console.log('==========================11、分割线=========================');
+let strB = 'hello, hello, world';
+console.log(`strB.slice(2) = ${strB.slice(2)}`);            // strB.slice(2) = llo, hello, world
+console.log(`strB.slice(0, 2) = ${strB.slice(0, 2)}`);      // strB.slice(0, 2) = he
+console.log(`strB.slice(0, -2) = ${strB.slice(0, -2)}`);    // strB.slice(0, -2) = hello, hello, wor
+console.log(`strB.slice(-4, -2) = ${strB.slice(-4, -2)}`);  // strB.slice(-4, -2) = or
+console.log(`strB.slice(-2, 0) = ${strB.slice(-2, 0)}`);    // strB.slice(-2, 0) =
+
+
 
 
 
 /**
  * 12、字符串截取 --- str.substr(start, length)
- *          start为起始位置
- *          length为子串长度
+ *          start为起始位置（包含）
+ *          length为子串长度(如果不传length，默认截取到字符串末尾)
  * */
 console.log('==========================12、分割线=========================');
+let strC = 'hello, hello, world';
+console.log(`strC.substr(2, 2) = ${strC.substr(2, 2)}`);     // strC.substr(2, 2) = ll
+console.log(`strC.substr(2) = ${strC.substr(2)}`);                 // strC.substr(2) = llo, hello, world
+console.log(`strC.substr(-2) = ${strC.substr(-2)}`);               // strC.substr(-2) = ld
+console.log(`strC.substr(2, 50) = ${strC.substr(2, 50)}`);  // strC.substr(2, 50) = llo, hello, world
+
 
 
 
 /**
- * 13、字符串截取 --- str.substring(start, stop)
- *          与slice不同的是，参数不能有负数
+ * 13、字符串截取 --- str.substring(start, end)
+ *          与slice不同的是，参数不能有负数，否则返回空字符串
  * */
 console.log('==========================13、分割线=========================');
+let strD = 'hello, hello, world';
+console.log(`strD.substring(2, 4) = ${strD.substring(2, 4)}`);      // strD.substring(2, 4) = ll
+console.log(`strD.substring(-4, -2) = ${strD.substring(-4, -2)}`);  // strD.substring(-4, -2) =
+console.log(`strD.substring(-2, -4) = ${strD.substring(-2, -4)}`);  // strD.substring(-2, -4) =
+
 
 
 
 /**
  * 14、字符串大小写转换 --- str.toLowerCase(), str.toUpperCase():
+ *          返回新的字符串，不会改变原字符串
  * */
 console.log('==========================14、分割线=========================');
+let  strE = 'HELLO, world';
+console.log(`strE.toLowerCase() = ${strE.toLowerCase()}`);  // strE.toLowerCase() = hello, world
+console.log(`strE.toUpperCase() = ${strE.toUpperCase()}`);  // strE.toUpperCase() = HELLO, WORLD
+console.log(`strE = ${strE}`);                              // 原字符串不变：strE = HELLO, world
