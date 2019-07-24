@@ -143,7 +143,7 @@ function f5(a, b, ...rest) {
     arguments[1] = 20;
     return a + b;
 }
-let result1 = f5(1, 2, 3, 4)
+let result1 = f5(1, 2, 3, 4);
 console.log(`result1 = ${result1}`);    // result1 = 30(在严格模式下结果为3)
 
 
@@ -181,3 +181,14 @@ console.log(`m5 = ${m5()}`);    // m5 = 12
 
 
 // 闭包的另一个用途，封装对象的私有属性和私有方法
+// 注意：闭包的内存消耗较大，不能滥用
+
+// 立即调用的函数表达式：
+(function fun4(){})();
+(function fun5(){}());
+
+// eval命令接收一个字符串作为参数，并将字符串当作语句执行。如果参数不是字符串，会原样返回
+let temp1 = 10;
+eval('temp1 = 20;');
+// 在严格模式下，eval内部声明的变量，不会影响到外部作用域。但是仍然能够读写当前作用域的值。
+console.log(`temp1 = ${temp1}`);    // temp1 = 20
